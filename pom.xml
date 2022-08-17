@@ -61,6 +61,7 @@
     <modules>
         <module>li.strolch.mvn.archetype.main</module>
         <module>li.strolch.mvn.archetype.webapp</module>
+        <module>li.strolch.mvn.archetype.plc</module>
     </modules>
 
     <build>

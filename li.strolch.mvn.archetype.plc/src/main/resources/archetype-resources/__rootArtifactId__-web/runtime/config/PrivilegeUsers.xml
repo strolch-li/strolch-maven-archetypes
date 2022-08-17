@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Users>
+
+    <!-- Password: plc-01 -->
+    <User userId="100" username="plc-01" password="$PBKDF2WithHmacSHA512,10000,256$66356438613636353335646634343039366630316238383430663766343431383265666438306666613533336530363437383163623664373534353034343564$88cae5330f44cde7bb7bc43a51ab7e814366482673c13448e3391c40ca004894">
+        <Firstname>PLC</Firstname>
+        <Lastname>01</Lastname>
+        <State>ENABLED</State>
+        <Locale>en</Locale>
+        <Roles>
+            <Role>PLC</Role>
+        </Roles>
+    </User>
+
+    <!-- Password: admin -->
+    <User userId="1" username="admin" password="cb69962946617da006a2f95776d78b49e5ec7941d2bdb2d25cdb05f957f64344" salt="61646d696e">
+        <Firstname>Application</Firstname>
+        <Lastname>Administrator</Lastname>
+        <State>ENABLED</State>
+        <Locale>en-GB</Locale>
+        <Roles>
+            <Role>StrolchAdmin</Role>
+            <Role>ShopFloor</Role>
+            <Role>ModelAccessor</Role>
+            <Role>PrivilegeAdmin</Role>
+        </Roles>
+        <Properties>
+            <Property name="organization" value="strolch.li"/>
+            <Property name="organizationalUnit" value="Development"/>
+        </Properties>
+    </User>
+
+    <User userId="0" username="agent">
+        <State>SYSTEM</State>
+        <Roles>
+            <Role>ModelAccessor</Role>
+            <Role>PrivilegeAdmin</Role>
+            <Role>agent</Role>
+        </Roles>
+    </User>
+</Users>

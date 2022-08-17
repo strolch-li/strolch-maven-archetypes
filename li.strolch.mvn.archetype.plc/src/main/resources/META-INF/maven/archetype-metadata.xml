@@ -1,0 +1,109 @@
+<archetype-descriptor
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0
+        http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        name="li.strolch.mvn.archetype.webapp">
+
+    <requiredProperties>
+        <requiredProperty key="appName">
+            <defaultValue>Strolch App</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+
+    <modules>
+        <module id="${rootArtifactId}-shared" dir="__rootArtifactId__-shared" name="${rootArtifactId}-shared">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+
+        <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                </fileSet>
+                <fileSet filtered="false" encoding="UTF-8">
+                    <directory>src/main/webapp/</directory>
+                    <excludes>
+                        <exclude>bower.json</exclude>
+                        <exclude>package.json</exclude>
+                        <exclude>locales.json</exclude>
+                        <exclude>app/index.html</exclude>
+                        <exclude>app/src/behaviors/c-app-behavior.html</exclude>
+                        <exclude>app/src/main/c-drawer.html</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/webapp/</directory>
+                    <includes>
+                        <include>bower.json</include>
+                        <include>package.json</include>
+                        <include>locales.json</include>
+                        <include>app/index.html</include>
+                        <include>app/src/behaviors/c-app-behavior.html</include>
+                        <include>app/src/main/c-drawer.html</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>runtime</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+
+        <module id="${rootArtifactId}-plc-web" dir="__rootArtifactId__-plc-web" name="${rootArtifactId}-plc-web">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                </fileSet>
+                <fileSet filtered="false" encoding="UTF-8">
+                    <directory>src/main/webapp/</directory>
+                    <excludes>
+                        <exclude>bower.json</exclude>
+                        <exclude>package.json</exclude>
+                        <exclude>locales.json</exclude>
+                        <exclude>app/index.html</exclude>
+                        <exclude>app/src/behaviors/c-app-behavior.html</exclude>
+                        <exclude>app/src/main/c-drawer.html</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/webapp/</directory>
+                    <includes>
+                        <include>bower.json</include>
+                        <include>package.json</include>
+                        <include>locales.json</include>
+                        <include>app/index.html</include>
+                        <include>app/src/behaviors/c-app-behavior.html</include>
+                        <include>app/src/main/c-drawer.html</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>runtime</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+    </modules>
+
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+            <excludes>
+                <exclude>${rootArtifactId}-shared</exclude>
+                <exclude>${rootArtifactId}-web</exclude>
+                <exclude>${rootArtifactId}-plc-web</exclude>
+            </excludes>
+        </fileSet>
+    </fileSets>
+</archetype-descriptor>

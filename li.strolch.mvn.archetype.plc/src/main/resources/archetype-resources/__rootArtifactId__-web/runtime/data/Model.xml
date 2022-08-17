@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StrolchModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://strolch.li/xsd/StrolchModel-1.6.xsd"
+              xsi:schemaLocation="https://strolch.li/xsd/StrolchModel-1.6.xsd StrolchModel.xsd">
+
+    <Resource Id="configuration" Name="Configuration" Type="Configuration">
+        <ParameterBag Id="parameters" Name="Parameters" Type="Parameters">
+            <Parameter Id="plcId" Name="PLC ID" Type="String" Value="plc-01"/>
+            <Parameter Id="plcStarted" Name="plcStarted" Type="Boolean" Value="false"/>
+            <Parameter Id="automaticMode" Name="automaticMode" Type="Boolean" Value="true"/>
+        </ParameterBag>
+    </Resource>
+
+    <Resource Id="plc-01" Name="PLC-01" Type="Plc">
+        <ParameterBag Id="parameters" Name="Parameters" Type="Parameters">
+            <Parameter Id="connectionState" Name="Connection State" Type="String" Value="Disconnected" Interpretation="Enumeration" Uom="ConnectionState"/>
+            <Parameter Id="connectionStateMsg" Name="Connection State Msg" Type="String" Value=""/>
+            <Parameter Id="localIp" Name="Local IP" Type="StringList" Value=""/>
+        </ParameterBag>
+    </Resource>
+
+</StrolchModel>

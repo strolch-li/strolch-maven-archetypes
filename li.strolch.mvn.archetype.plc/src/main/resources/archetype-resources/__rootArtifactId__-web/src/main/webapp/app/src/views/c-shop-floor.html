@@ -1,0 +1,190 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
+<link rel="import" href="../../bower_components/strolch-wc-paging/strolch-wc-paging.html">
+
+<link rel="import" href="../styles/c-app-style.html">
+<link rel="import" href="../behaviors/c-component-behavior.html">
+
+<dom-module id="c-shop-floor">
+    <template>
+
+        <style is="custom-style" include="c-app-style">
+            :host {
+                display: block;
+                min-height: 100%;
+                padding-left: 20px;
+                padding-bottom: 20px;
+            }
+
+            h2 {
+                margin-left: 10px;
+            }
+
+            paper-card {
+                margin: 0 0 10px 10px;
+                padding: 0;
+                width: inherit;
+                min-width: 350px;
+            }
+
+            .actions {
+                padding: 10px;
+            }
+
+            .icons {
+                margin: 16px;
+            }
+
+            .icons div {
+                display: inline-block;
+                padding-right: 16px;
+            }
+
+            .icons iron-icon {
+                color: #0b8043
+            }
+
+            paper-dialog {
+                min-width: 500px;
+            }
+
+            .row {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+
+        </style>
+
+        <div class="actions no-padding actions-right">
+            <paper-icon-button icon="icons:refresh" on-tap="reload"></paper-icon-button>
+        </div>
+
+        <h2>[[localize('plc')]]</h2>
+        <div class="row">
+            <paper-card heading="[[localize('plc')]]">
+                <div class="icons">
+                    <div>
+                        <iron-icon icon$="[[getCheckedIcon(shopFloor.plcConnected)]]"></iron-icon>
+                        <span>[[localize('plcConnected')]]</span>
+                    </div>
+                </div>
+                <div class="icons">
+                    <div>
+                        <iron-icon icon$="[[getCheckedIcon(shopFloor.plcStarted)]]"></iron-icon>
+                        <span>[[localize('plcStarted')]]</span>
+                    </div>
+                </div>
+                <div class="icons">
+                    <div>
+                        <iron-icon icon$="[[getCheckedIcon(shopFloor.automaticMode)]]"></iron-icon>
+                        <span>[[localize('automaticMode')]]</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <paper-button on-tap="enableAutomaticMode" raised>[[localize('enable')]]</paper-button>
+                    <paper-button on-tap="disableAutomaticMode" raised>[[localize('disable')]]</paper-button>
+                    <paper-button on-tap="stopAll" raised>[[localize('stopAll')]]</paper-button>
+                </div>
+            </paper-card>
+
+        </div>
+
+        <iron-ajax id="ajaxGetState"
+                   url="[[baseRestPath]]/shopFloor"
+                   method="GET"
+                   content-type="application/json"
+                   on-response="onGetState"
+                   on-error="onRequestError"></iron-ajax>
+        <iron-ajax id="ajax"
+                   url="[[baseRestPath]]/shopFloor"
+                   content-type="application/json"
+                   on-response="ajaxComplete"
+                   on-error="onRequestError"></iron-ajax>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'c-shop-floor',
+
+            behaviors: [
+                CustomComponentBehavior
+            ],
+
+            properties: {
+                toolbarConfig: {
+                    type: Object,
+                    notify: true,
+                    readOnly: true,
+                    value: {
+                        hasSearchTerm: true
+                    }
+                },
+                shopFloor: {
+                    type: Object
+                }
+            },
+
+            getCheckedIcon: function (state) {
+                return state != null && state === true ? "icons:radio-button-checked" : "icons:radio-button-unchecked";
+            },
+
+            ajaxComplete: function () {
+                this.reload();
+            },
+            reload: function () {
+                this.$.ajaxGetState.generateRequest();
+            },
+
+            attached: function () {
+                this.poll();
+            },
+
+            poll: function () {
+                this.debounce("reload", function () {
+                    this.reload();
+                    this.poll();
+                }, 5000);
+            },
+
+            onGetState: function (e) {
+                this.shopFloor = e.detail.response.data;
+            },
+
+            enableAutomaticMode: function () {
+                this.sendTelegram("EnableAutomaticMode", "enableAutomaticMode", "enableAutomaticModeConfirm");
+            },
+            disableAutomaticMode: function () {
+                this.sendTelegram("DisableAutomaticMode", "disableAutomaticMode", "disableAutomaticModeConfirm");
+            },
+            stopAll: function () {
+                this.sendTelegram("StopAll", "stopAll", "stopAllConfirm");
+            },
+
+            sendTelegram: function (action, confirmTitle, confirmMsg) {
+                var body;
+                if (typeof action === "object") {
+                    body = action;
+                } else {
+                    body = {action: action};
+                }
+
+                this.showInfo({
+                    title: this.localize(confirmTitle),
+                    line1: this.localize(confirmMsg),
+                    callback: function (confirmed) {
+                        if (!confirmed) return;
+                        this.$.ajax.url = this.baseRestPath + "/shopFloor/action";
+                        this.$.ajax.method = "PUT";
+                        this.$.ajax.body = body;
+                        this.$.ajax.generateRequest();
+                    }.bind(this)
+                });
+            }
+        });
+    </script>
+</dom-module>

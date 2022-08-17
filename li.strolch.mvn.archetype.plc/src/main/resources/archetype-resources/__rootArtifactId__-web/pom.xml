@@ -1,0 +1,249 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${rootArtifactId}-web</artifactId>
+    <name>${rootArtifactId}-web</name>
+    <packaging>war</packaging>
+
+    <properties>
+        <appFinalName>${rootArtifactId}-web</appFinalName>
+        <warFinalName>${rootArtifactId}-web</warFinalName>
+    </properties>
+
+    <dependencies>
+
+        <!-- base -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+        <!-- strolch -->
+        <dependency>
+            <groupId>li.strolch</groupId>
+            <artifactId>li.strolch.model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>li.strolch</groupId>
+            <artifactId>li.strolch.agent</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>li.strolch</groupId>
+            <artifactId>li.strolch.rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>li.strolch</groupId>
+            <artifactId>li.strolch.service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>li.strolch</groupId>
+            <artifactId>li.strolch.testbase</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Strolch PLC -->
+        <dependency>
+            <groupId>li.strolch</groupId>
+            <artifactId>strolch-plc-gw-server</artifactId>
+        </dependency>
+
+        <!-- my-app -->
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}-shared</artifactId>
+        </dependency>
+
+        <!-- web -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.bundles</groupId>
+            <artifactId>jaxrs-ri</artifactId>
+        </dependency>
+
+        <!-- testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${appFinalName}</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>StrolchBootstrap.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/*.properties</exclude>
+                    <exclude>StrolchBootstrap.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>${buildnumber-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>${warFinalName}</warName>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <profiles>
+
+        <!-- for dev: always enable strolch environment "dev" -->
+        <profile>
+            <id>dev.local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <strolch.env>dev.local</strolch.env>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <version>${maven-clean-plugin.version}</version>
+                        <configuration>
+                            <filesets>
+                                <fileset>
+                                    <directory>src/main/webapp/app/bower_components</directory>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                    <followSymlinks>false</followSymlinks>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>${exec-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>exec-npm-install</id>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <arguments>
+                                        <argument>install</argument>
+                                    </arguments>
+                                    <workingDirectory>${basedir}/src/main/webapp</workingDirectory>
+                                </configuration>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>exec-gulp</id>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <executable>gulp</executable>
+                                    <workingDirectory>${basedir}/src/main/webapp</workingDirectory>
+                                </configuration>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                            <warName>${warFinalName}</warName>
+                            <packagingExcludes>app/**/*,node_modules/**/*</packagingExcludes>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+</project>
