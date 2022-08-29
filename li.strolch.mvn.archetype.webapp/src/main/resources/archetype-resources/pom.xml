@@ -55,7 +55,7 @@
         <hamcrest.version>2.2</hamcrest.version>
 
         <!-- strolch -->
-        <strolch.version>1.8.0-SNAPSHOT</strolch.version>
+        <strolch.version>1.8.5</strolch.version>
 
         <!-- maven plug-in dependencies -->
         <maven-scm-plugin.version>1.12.2</maven-scm-plugin.version>
