@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>li.strolch</groupId>
-    <artifactId>li.strolch-maven-archetypes</artifactId>
+    <artifactId>strolch-maven-archetypes</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
     <name>li.strolch-maven-archetypes</name>
@@ -59,9 +59,9 @@
     </properties>
 
     <modules>
-        <module>li.strolch.mvn.archetype.main</module>
-        <module>li.strolch.mvn.archetype.webapp</module>
-        <module>li.strolch.mvn.archetype.plc</module>
+        <module>strolch.mvn.archetype.main</module>
+        <module>strolch.mvn.archetype.webapp</module>
+        <module>strolch.mvn.archetype.plc</module>
     </modules>
 
     <build>
