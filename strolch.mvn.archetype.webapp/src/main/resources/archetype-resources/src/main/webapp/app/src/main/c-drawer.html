@@ -93,12 +93,12 @@
                 <paper-item id="logout" class="menu-item">[[localize('logout')]]</paper-item>
             </paper-menu>
 
-            <paper-material id="container" class="container info-div" elevation="0">
+            <paper-material class="container info-div" elevation="0">
                 <p>[[userConfig.firstname]] [[userConfig.lastname]] / [[userConfig.username]]</p>
-                <p title="[[version.appVersion.scmRevision]]">[[version.appVersion.artifactVersion]]</p>
+                <p title="[[version.appVersion.scmRevision]]">[[version.appVersion.artifactVersion]] @ [[environment]]</p>
             </paper-material>
 
-            <paper-material id="container" class="container" elevation="0">
+            <paper-material class="container" elevation="0">
                 <paper-dropdown-menu label="[[localize('language')]]">
                     <paper-listbox class="dropdown-content" selected="{{userLocale}}" attr-for-selected="data">
                         <paper-item data="de">Deutsch</paper-item>
@@ -141,7 +141,11 @@
                     observer: "userLocaleChanged"
                 },
                 version: {
-                    type: Object
+                    type: Object,
+                    observer: "versionChanged"
+                },
+                environment: {
+                    type: String
                 }
             },
 
@@ -166,6 +170,9 @@
                 this.fire('cx-logout');
             },
 
+            versionChanged: function (newValue) {
+                this.updateEnvironment(newValue);
+            },
             userConfigChanged: function (newValue, oldValue) {
                 if (newValue != null) {
                     var userLocale = Strolch.getUserLocale();

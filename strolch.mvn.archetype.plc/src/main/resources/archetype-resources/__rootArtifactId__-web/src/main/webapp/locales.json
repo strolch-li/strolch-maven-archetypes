@@ -67,7 +67,12 @@
     "enableAutomaticModeConfirm": "Should the automatic mode be enabled?",
     "disableAutomaticMode": "Disable Automatic Mode",
     "disableAutomaticModeConfirm": "Should the automatic mode be disabled?",
-    "shop-floor": "Shop-Floor"
+    "shop-floor": "Shop-Floor",
+    "production": "Production",
+    "testing": "Testing",
+    "staging": "Staging",
+    "development": "Development",
+    "demo": "Demo"
   },
   "de": {
     "shop-floor": "Fördertechnik",
@@ -139,7 +144,12 @@
     "info": "Information",
     "agent.service.failed.access.denied": "Benutzer {user} darf Service {service} nicht ausführen",
     "agent.query.failed.access.denied": "Benutzer {user} darf Abfrage {query} nicht ausführen",
-    "agent.search.failed.access.denied": "Benutzer {user} darf Suche {search} nicht ausführen"
+    "agent.search.failed.access.denied": "Benutzer {user} darf Suche {search} nicht ausführen",
+    "testing": "Testen",
+    "production": "Produktion",
+    "staging": "Staging",
+    "development": "Entwicklung",
+    "demo": "Demo"
   },
   "fr": {
     "shop-floor": "Système de convoyage",
@@ -178,6 +188,11 @@
     "errorOccurred": "Une erreur s'est produite",
     "agent.service.failed.access.denied": "Utilisateur {user} ne peut exécuter le service {service}",
     "agent.query.failed.access.denied": "Utilisateur {user} ne peut exécuter la demande {query}",
-    "agent.search.failed.access.denied": "Utilisateur {user} ne peut exécuter la recherche {search}"
+    "agent.search.failed.access.denied": "Utilisateur {user} ne peut exécuter la recherche {search}",
+    "testing": "Tester",
+    "production": "Production",
+    "staging": "Mémoriser",
+    "development": "Développement",
+    "demo": "Demo"
   }
 }

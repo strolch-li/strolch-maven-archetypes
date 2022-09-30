@@ -5,6 +5,10 @@
     "agent.service.failed.access.denied": "User {user} may not perform service {service}",
     "agent.query.failed.access.denied": "User {user} may not perform query {query}",
     "agent.search.failed.access.denied": "User {user} may not perform search {search}",
+    "demo-locations": "Demo Locations",
+    "demo-books": "Demo Books",
+    "title": "Titel",
+    "author": "Author",
     "logout": "Logout",
     "info": "Information",
     "keepAlive": "Stay logged in",
@@ -58,7 +62,12 @@
     "mode": "Mode",
     "user": "User",
     "i18n-editor": "Internationalization editor",
-    "login": "Login"
+    "login": "Login",
+    "production": "Production",
+    "testing": "Testing",
+    "staging": "Staging",
+    "development": "Development",
+    "demo": "Demo"
   },
   "de": {
     "appTitle": "${appName} Steuerung",
@@ -121,7 +130,12 @@
     "info": "Information",
     "agent.service.failed.access.denied": "Benutzer {user} darf Service {service} nicht ausführen",
     "agent.query.failed.access.denied": "Benutzer {user} darf Abfrage {query} nicht ausführen",
-    "agent.search.failed.access.denied": "Benutzer {user} darf Suche {search} nicht ausführen"
+    "agent.search.failed.access.denied": "Benutzer {user} darf Suche {search} nicht ausführen",
+    "testing": "Testen",
+    "production": "Produktion",
+    "staging": "Staging",
+    "development": "Entwicklung",
+    "demo": "Demo"
   },
   "fr": {
     "appTitle": "${appName} Controle",
@@ -150,6 +164,11 @@
     "errorOccurred": "Une erreur s'est produite",
     "agent.service.failed.access.denied": "Utilisateur {user} ne peut exécuter le service {service}",
     "agent.query.failed.access.denied": "Utilisateur {user} ne peut exécuter la demande {query}",
-    "agent.search.failed.access.denied": "Utilisateur {user} ne peut exécuter la recherche {search}"
+    "agent.search.failed.access.denied": "Utilisateur {user} ne peut exécuter la recherche {search}",
+    "testing": "Tester",
+    "production": "Production",
+    "staging": "Mémoriser",
+    "development": "Développement",
+    "demo": "Demo"
   }
 }
