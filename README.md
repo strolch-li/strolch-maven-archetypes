@@ -10,7 +10,7 @@ Install this maven module locally:
 
 Now you can use the archetypes to create your project. The following archetypes are available:
 
-* li.strolch.mvn.archetype.main
-* li.strolch.mvn.archetype.webapp
+* strolch.mvn.archetype.main
+* strolch.mvn.archetype.webapp
 
 To create a Strolch project see https://strolch.li/development/
