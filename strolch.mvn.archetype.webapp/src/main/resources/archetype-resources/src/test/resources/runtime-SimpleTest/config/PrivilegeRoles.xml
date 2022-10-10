@@ -77,9 +77,6 @@
         <Privilege name="PrivilegeGetUser" policy="UserAccessPrivilege">
             <AllAllowed>true</AllAllowed>
         </Privilege>
-        <Privilege name="li.strolch.model.query.StrolchQuery" policy="DefaultPrivilege">
-            <AllAllowed>true</AllAllowed>
-        </Privilege>
         <Privilege name="li.strolch.service.api.Service" policy="DefaultPrivilege">
             <AllAllowed>true</AllAllowed>
         </Privilege>
