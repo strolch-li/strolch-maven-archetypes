@@ -5,8 +5,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import java.io.InputStream;
 
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.classic.util.ContextInitializer;
+import li.strolch.agent.api.LoggingLoader;
 import li.strolch.agent.api.StrolchAgent;
 import li.strolch.agent.api.StrolchBootstrapper;
 import li.strolch.utils.helper.StringHelper;
@@ -45,12 +44,7 @@ public class StartupListener implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		try {
-			new ContextInitializer((LoggerContext) StaticLoggerBinder.getSingleton().getLoggerFactory()).autoConfig();
-		} catch (Exception e) {
-			System.err.println("Failed to reconfigure logging...");
-			e.printStackTrace(System.err);
-		}
+		LoggingLoader.reloadLoggingConfiguration();
 
 		if (this.agent != null) {
 			logger.info("Destroying " + APP_NAME + "...");
