@@ -54,8 +54,10 @@ public class StartupListener implements ServletContextListener {
 			} catch (Throwable e) {
 				logger.error("Failed to stop " + APP_NAME + " due to: " + e.getMessage(), e);
 				throw e;
+			} finally {
+				logger.info("Destroyed " + APP_NAME);
+				LoggingLoader.reset();
 			}
 		}
-		logger.info("Destroyed " + APP_NAME);
 	}
 }
