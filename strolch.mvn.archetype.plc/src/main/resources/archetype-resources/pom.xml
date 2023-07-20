@@ -71,7 +71,6 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-site-plugin.version>3.10.0</maven-site-plugin.version>
-        <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
@@ -354,16 +353,6 @@
                     <version>${maven-site-plugin.version}</version>
                     <configuration>
                         <outputEncoding>UTF-8</outputEncoding>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-eclipse-plugin</artifactId>
-                    <version>${maven-eclipse-plugin.version}</version>
-                    <configuration>
-                        <downloadJavadocs>true</downloadJavadocs>
-                        <downloadSources>true</downloadSources>
                     </configuration>
                 </plugin>
 
