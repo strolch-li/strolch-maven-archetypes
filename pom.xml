@@ -10,7 +10,7 @@
     <name>li.strolch-maven-archetypes</name>
     <description>Module build for strolch maven archetypes</description>
     <packaging>pom</packaging>
-    <url>http://www.strolch.li</url>
+    <url>https://www.strolch.li</url>
     <inceptionYear>2022</inceptionYear>
 
     <issueManagement>
@@ -27,13 +27,13 @@
     <licenses>
         <license>
             <name>Apache License 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
 
     <organization>
         <name>Strolch</name>
-        <url>http://www.strolch.li</url>
+        <url>https://www.strolch.li</url>
     </organization>
 
     <developers>
@@ -41,7 +41,7 @@
             <id>eitch</id>
             <name>Robert von Burg</name>
             <email>eitch@eitchnet.ch</email>
-            <url>http://www.eitchnet.ch</url>
+            <url>https://www.eitchnet.ch</url>
             <roles>
                 <role>architect</role>
                 <role>developer</role>
