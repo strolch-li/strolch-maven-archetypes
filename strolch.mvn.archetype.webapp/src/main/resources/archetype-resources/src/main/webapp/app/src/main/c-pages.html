@@ -13,6 +13,7 @@
 <link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-inspector-menu.html">
 <link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-control.html">
 <link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-i18n-editor.html">
+<link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-components.html">
 <link rel="import" href="../../bower_components/strolch-wc-reports/strolch-wc-reports.html">
 
 <link rel="import" href="../behaviors/c-app-behavior.html">
@@ -53,6 +54,16 @@
                                       toolbar-config="{{toolbarConfig}}"
                                       base-path="../"
                                       route="{{route}}"></strolch-wc-inspector>
+            </template>
+            <template is="dom-if" if="[[equal(page, 'agent-components')]]" restamp>
+                <strolch-wc-components id="agent-components"
+                                       base-path="../"
+                                       base-rest-path="[[baseRestPath]]"
+                                       toolbar-config="{{toolbarConfig}}"
+                                       search-term="{{searchTerm}}"
+                                       user-location="[[userLocation]]"
+                                       route="{{routeTail}}"
+                                       propagate-show-dialog></strolch-wc-components>
             </template>
 
             <template is="dom-if" if="[[equal(page, 'operations-log')]]" restamp>
