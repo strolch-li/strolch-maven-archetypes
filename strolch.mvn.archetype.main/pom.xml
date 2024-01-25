@@ -19,7 +19,6 @@
             <url>file://${project.basedir}/../target/${project.artifactId}</url>
         </site>
     </distributionManagement>
-
     <build>
 
         <resources>
