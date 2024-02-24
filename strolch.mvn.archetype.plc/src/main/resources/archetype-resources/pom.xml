@@ -22,7 +22,7 @@
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <buildTimestamp>${maven.build.timestamp}</buildTimestamp>
 
-        <jdk.version>17</jdk.version>
+        <jdk.version>21</jdk.version>
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
 
@@ -57,8 +57,8 @@
 
         <pi4j.version>1.4</pi4j.version>
 
-        <strolch.version>1.8.5</strolch.version>
-        <strolch-plc.version>1.2.3</strolch-plc.version>
+        <strolch.version>2.2.3</strolch.version>
+        <strolch-plc.version>2.1.0</strolch-plc.version>
 
         <!-- test time dependencies -->
         <junit.version>4.13.2</junit.version>
