@@ -11,7 +11,6 @@ import li.strolch.agent.api.StrolchBootstrapper;
 import li.strolch.utils.helper.StringHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.impl.StaticLoggerBinder;
 
 @WebListener
 public class StartupListener implements ServletContextListener {

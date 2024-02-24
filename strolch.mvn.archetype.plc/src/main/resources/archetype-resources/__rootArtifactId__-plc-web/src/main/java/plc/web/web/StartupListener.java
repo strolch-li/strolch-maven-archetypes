@@ -18,7 +18,6 @@ import li.strolch.utils.helper.StringHelper;
 import li.strolch.xmlpers.api.XmlPersistenceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.impl.StaticLoggerBinder;
 
 @WebListener
 public class StartupListener implements ServletContextListener {
