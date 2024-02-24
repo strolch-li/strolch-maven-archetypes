@@ -3,14 +3,12 @@ package ${package}.web;
 import static ${package}.web.StartupListener.APP_NAME;
 
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.Priorities;
 import java.util.logging.Level;
 
 import ${package}.rest.BooksResource;
 import li.strolch.rest.RestfulStrolchComponent;
+import li.strolch.rest.StrolchRestfulClasses;
 import li.strolch.rest.StrolchRestfulExceptionMapper;
-import li.strolch.rest.endpoint.*;
-import li.strolch.rest.filters.*;
 import org.glassfish.jersey.logging.LoggingFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
@@ -29,30 +27,17 @@ public class RestfulApplication extends ResourceConfig {
 		packages(BooksResource.class.getPackage().getName());
 
 		// strolch services
-		register(AuthenticationService.class);
-		register(StrolchJobsResource.class);
-		register(ReportResource.class);
-		register(ControlResource.class);
-		register(EnumQuery.class);
-		register(Inspector.class);
-		register(UserSessionsService.class);
-		register(PrivilegeUsersService.class);
-		register(PrivilegeRolesService.class);
-		register(PrivilegePoliciesService.class);
-		register(OperationsLogResource.class);
-		register(VersionQuery.class);
+		for (Class<?> clazz : StrolchRestfulClasses.getRestfulClasses()) {
+			register(clazz);
+		}
 
 		// filters
-		register(AuthenticationRequestFilter.class, Priorities.AUTHENTICATION);
-		register(AccessControlResponseFilter.class);
-		register(AuthenticationResponseFilter.class);
-		register(HttpCacheResponseFilter.class);
+		for (Class<?> clazz : StrolchRestfulClasses.getProviderClasses()) {
+			register(clazz);
+		}
 
 		// log exceptions and return them as plain text to the caller
 		register(StrolchRestfulExceptionMapper.class);
-
-		// the JSON generated is in UTF-8
-		register(CharsetResponseFilter.class);
 
 		RestfulStrolchComponent restfulComponent = RestfulStrolchComponent.getInstance();
 		if (restfulComponent.isRestLogging()) {
