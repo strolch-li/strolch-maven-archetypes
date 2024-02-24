@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 public class StartupListener implements ServletContextListener {
 
 	private static final Logger logger = LoggerFactory.getLogger(StartupListener.class);
-	public static final String APP_NAME = "eSyTest";
+	public static final String APP_NAME = "${appName}";
 
 	private StrolchAgent agent;
 
