@@ -66,7 +66,7 @@
         <dependencies>
             <dependency>
                 <groupId>li.strolch</groupId>
-                <artifactId>li.strolch.bom</artifactId>
+                <artifactId>strolch-bom</artifactId>
                 <type>pom</type>
                 <version>${strolch.version}</version>
                 <scope>import</scope>

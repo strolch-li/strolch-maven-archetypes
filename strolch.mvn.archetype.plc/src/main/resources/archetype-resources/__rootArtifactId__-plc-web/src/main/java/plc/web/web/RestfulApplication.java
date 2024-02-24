@@ -2,7 +2,7 @@ package ${package}.plc.web.web;
 
 import static ${package}.plc.web.web.StartupListener.APP_NAME;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 import java.util.logging.Level;
 
 import li.strolch.plc.rest.PlcConnectionsResource;

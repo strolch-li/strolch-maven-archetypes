@@ -38,46 +38,46 @@
         <!-- strolch -->
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.model</artifactId>
+            <artifactId>model</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.agent</artifactId>
+            <artifactId>agent</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.rest</artifactId>
+            <artifactId>rest</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.service</artifactId>
+            <artifactId>service</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.testbase</artifactId>
+            <artifactId>test-base</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.persistence.xml</artifactId>
+            <artifactId>persistence.xml</artifactId>
         </dependency>
 
         <!-- PLC -->
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>strolch-plc-core</artifactId>
+            <artifactId>plc-core</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>strolch-plc-rest</artifactId>
+            <artifactId>plc-rest</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>strolch-plc-gw-client</artifactId>
+            <artifactId>plc-gw-client</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>strolch-plc-util</artifactId>
+            <artifactId>plc-util</artifactId>
         </dependency>
 
         <!-- my-app -->
@@ -86,22 +86,38 @@
             <artifactId>${rootArtifactId}-shared</artifactId>
         </dependency>
 
-        <!-- web -->
+        <!-- REST using Apache Jersey -->
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.websocket</groupId>
-            <artifactId>javax.websocket-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.jersey.bundles</groupId>
-            <artifactId>jaxrs-ri</artifactId>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-grizzly2-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
         </dependency>
 
         <!-- test -->

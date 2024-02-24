@@ -2,9 +2,9 @@ package ${package}.plc.web.web;
 
 import static li.strolch.utils.helper.ExceptionHelper.hasCause;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 import java.io.File;
 import java.io.InputStream;
 

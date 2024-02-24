@@ -33,19 +33,19 @@
         <!-- strolch -->
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.model</artifactId>
+            <artifactId>model</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.agent</artifactId>
+            <artifactId>agent</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>li.strolch.service</artifactId>
+            <artifactId>service</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>strolch-plc-model</artifactId>
+            <artifactId>plc-model</artifactId>
         </dependency>
 
         <!-- utils -->

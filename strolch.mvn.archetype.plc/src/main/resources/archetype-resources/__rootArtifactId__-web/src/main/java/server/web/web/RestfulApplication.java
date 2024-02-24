@@ -2,7 +2,7 @@ package ${package}.server.web.web;
 
 import static ${package}.server.web.web.StartupListener.APP_NAME;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 import java.util.logging.Level;
 
 import ${package}.server.web.rest.ShopFloorResource;

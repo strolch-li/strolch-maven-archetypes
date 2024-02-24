@@ -6,11 +6,11 @@ import static li.strolch.model.Tags.Json.DATA;
 import static li.strolch.plc.model.PlcConstants.PARAM_PLC_ID;
 import static li.strolch.rest.StrolchRestfulConstants.STROLCH_CERTIFICATE;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import ${package}.server.web.service.ShopFloorActionService;
 import com.google.gson.JsonObject;
