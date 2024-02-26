@@ -43,7 +43,7 @@
             <p class="g-center"><i>[[localize('noElementsAvailable')]]</i></p>
         </template>
 
-        <strolch-wc-paging id="paging" data-obj="[[dataObj]]" hidden$="[[!arrayFilled(rows)]]"></strolch-wc-paging>
+        <strolch-wc-paging id="paging" data-obj="[[dataObj]]" has-content show-set-limit hidden$="[[!arrayFilled(rows)]]"></strolch-wc-paging>
 
         <iron-ajax id="ajaxGetBooks"
                    url="[[baseRestPath]]/books?query=[[searchTerm]]"
