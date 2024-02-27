@@ -20,7 +20,7 @@
     "strolch-wc-information-dialog": "strolch-li/strolch-wc-information-dialog#^0.1.16",
     "strolch-wc-parameter-input": "strolch-li/strolch-wc-parameter-input#^0.1.7",
     "strolch-wc-reports": "strolch-li/strolch-wc-reports#^0.5.5",
-    "strolch-wc-paging": "strolch-li/strolch-wc-paging#^0.2.1",,
+    "strolch-wc-paging": "strolch-li/strolch-wc-paging#^0.2.1",
     "strolch-wc-ws-observer": "strolch-li/strolch-wc-ws-observer#^0.2.11",
     "strolch-wc-tree": "strolch-li/strolch-wc-tree#^0.2.6",
 
