@@ -47,7 +47,7 @@
         <jersey.version>3.1.2</jersey.version>
         <csrfguard.version>4.3.0-jakarta</csrfguard.version>
 
-        <camel.version>3.19.0</camel.version>
+        <camel.version>3.22.1</camel.version>
 
         <pi4j.version>1.4</pi4j.version>
 
