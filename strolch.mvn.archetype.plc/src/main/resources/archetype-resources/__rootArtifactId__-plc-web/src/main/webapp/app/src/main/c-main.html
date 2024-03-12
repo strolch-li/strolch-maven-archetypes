@@ -211,7 +211,7 @@
                     || scmRevision === 'undefined') {
                     sessionStorage.appScmRevision = scmRevision;
                     console.log("App SCM Revision is now known as " + scmRevision);
-                } else if (scmRevision !== currentVersion) {
+                } else if (scmRevision !== undefined && scmRevision !== currentVersion) {
                     console.log("App SCM Revision has changed from " + currentVersion + " to " + scmRevision + ". Need to refresh browser...");
                     this.fire("strolch-app-version-outdated", {newVersion: scmRevision});
 
