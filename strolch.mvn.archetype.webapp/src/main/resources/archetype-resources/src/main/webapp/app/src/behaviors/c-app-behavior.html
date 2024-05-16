@@ -47,9 +47,6 @@
                     case 'control' :
                     case 'operations-log' :
                     case 'jobs' :
-                    case 'sessions' :
-                    case 'users' :
-                    case 'roles' :
                     case 'i18n-editor' :
                     case 'reports' :
                         this.set('toolbarConfig', {
@@ -60,7 +57,13 @@
 
                         break;
                     default:
-                        if (page != null && page.toolbarConfig != null) {
+                        if (page == null || page.toolbarConfig == null) {
+                            this.set('toolbarConfig', {
+                                pageTitle: pageName,
+                                backButton: true,
+                                hasSearchTerm: false
+                            });
+                        } else {
                             this.set('toolbarConfig', page.toolbarConfig);
                         }
                 }

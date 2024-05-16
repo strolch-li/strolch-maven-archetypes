@@ -4,9 +4,7 @@
 
 <link rel="import" href="../../bower_components/strolch-wc-auth/strolch-wc-auth.html">
 <link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-inspector.html">
-<link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-users.html">
-<link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-roles.html">
-<link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-sessions.html">
+<link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-user-management.html">
 <link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-operations-log.html">
 <link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-jobs.html">
 <link rel="import" href="../../bower_components/strolch-wc-inspector/strolch-wc-operations-log.html">
@@ -91,25 +89,16 @@
                                     propagate-show-dialog></strolch-wc-reports>
             </template>
 
-            <template is="dom-if" if="[[equal(page, 'users')]]" restamp>
-                <strolch-wc-users id="users"
-                                  toolbar-config="{{toolbarConfig}}"
-                                  base-path="../"
-                                  route="{{route}}"></strolch-wc-users>
-            </template>
-
-            <template is="dom-if" if="[[equal(page, 'roles')]]" restamp>
-                <strolch-wc-roles id="roles"
-                                  toolbar-config="{{toolbarConfig}}"
-                                  base-path="../"
-                                  route="{{route}}"></strolch-wc-roles>
-            </template>
-
-            <template is="dom-if" if="[[equal(page, 'sessions')]]" restamp>
-                <strolch-wc-sessions id="sessions"
-                                     toolbar-config="{{toolbarConfig}}"
-                                     base-path="../"
-                                     route="{{route}}"></strolch-wc-sessions>
+            <template is="dom-if" if="[[equal(page, 'userManagement')]]" restamp>
+                <strolch-wc-user-management id="userManagement"
+                                            base-path="../"
+                                            base-rest-path="[[baseRestPath]]"
+                                            locales-path="../../../locales.json"
+                                            toolbar-config="{{toolbarConfig}}"
+                                            search-term="{{searchTerm}}"
+                                            user-location="[[userLocation]]"
+                                            route="{{route}}"
+                                            propagate-show-dialog></strolch-wc-user-management>
             </template>
 
             <template is="dom-if" if="[[equal(page, 'control')]]" restamp>
