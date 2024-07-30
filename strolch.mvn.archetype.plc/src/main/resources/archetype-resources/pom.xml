@@ -50,7 +50,7 @@
 
         <pi4j.version>1.4</pi4j.version>
 
-        <strolch.version>2.2.3</strolch.version>
+        <strolch.version>2.3.3</strolch.version>
         <strolch-plc.version>2.1.0</strolch-plc.version>
 
         <!-- test time dependencies -->
