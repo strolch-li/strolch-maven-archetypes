@@ -2,7 +2,7 @@ package ${package}.web;
 
 import static ${package}.web.StartupListener.APP_NAME;
 
-import javax.ws.rs.ApplicationPath;
+import jakarta.ws.rs.ApplicationPath;
 import java.util.logging.Level;
 
 import ${package}.rest.BooksResource;
