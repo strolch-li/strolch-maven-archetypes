@@ -38,28 +38,28 @@
         <!-- strolch -->
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>strolch-model</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>agent</artifactId>
+            <artifactId>strolch-agent</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>rest</artifactId>
+            <artifactId>strolch-rest</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>strolch-service</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>test-base</artifactId>
+            <artifactId>strolch-test-base</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>persistence.xml</artifactId>
+            <artifactId>strolch-persistence-xml</artifactId>
         </dependency>
 
         <!-- PLC -->

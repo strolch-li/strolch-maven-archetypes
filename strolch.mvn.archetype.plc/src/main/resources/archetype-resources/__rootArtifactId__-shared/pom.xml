@@ -33,15 +33,15 @@
         <!-- strolch -->
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>strolch-model</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>agent</artifactId>
+            <artifactId>strolch-agent</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>strolch-service</artifactId>
         </dependency>
         <dependency>
             <groupId>li.strolch</groupId>
