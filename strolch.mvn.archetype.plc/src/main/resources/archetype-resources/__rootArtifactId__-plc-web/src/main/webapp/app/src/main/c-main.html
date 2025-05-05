@@ -33,6 +33,11 @@
                 color: var(--app-regular-highlight-fg-color);
             }
 
+            strolch-wc-notification {
+                --notification-background-color-type-information: var(--app-dark-highlight-bg-color);
+                --notification-background-color-type-notification: var(--app-regular-warning-bg-color);
+            }
+
             strolch-wc-debounced-input {
                 --focus-color: white;
                 --input-color: white;
@@ -51,7 +56,8 @@
         <app-drawer-layout fullbleed force-narrow>
 
             <template is="dom-if" if="[[authTokenValid]]">
-                <c-drawer id="drawer" page="[[page]]" auth-token-valid="[[authTokenValid]]" user-config="[[userConfig]]" version="[[version]]"
+                <c-drawer id="drawer" page="[[page]]" auth-token-valid="[[authTokenValid]]" user-config="[[userConfig]]"
+                          version="[[version]]"
                           on-strolch-app-version-outdated="onAppVersionOutdated"></c-drawer>
 
                 <app-toolbar>
@@ -65,7 +71,8 @@
             </template>
 
             <template is="dom-repeat" items="[[notifications]]" as="notification">
-                <strolch-wc-notification message="[[notification.message]]"
+                <strolch-wc-notification notification-type$="[[notification.notificationType]]"
+                                         message="[[notification.message]]"
                                          action1="[[notification.action1]]"
                                          action2="[[notification.action2]]"
                                          action3="[[notification.action3]]"
@@ -76,7 +83,8 @@
                                          fa-icon="[[notification.faIcon]]"></strolch-wc-notification>
             </template>
 
-            <c-pages id="pages" page="[[page]]" toolbar-config="{{toolbarConfig}}" route="{{routeTail}}" search-term="[[searchTerm]]"
+            <c-pages id="pages" page="[[page]]" toolbar-config="{{toolbarConfig}}" route="{{routeTail}}"
+                     search-term="[[searchTerm]]"
                      user-location="{{userLocation}}"></c-pages>
 
             <paper-toast id="toast" text="[[toastText]]"></paper-toast>
